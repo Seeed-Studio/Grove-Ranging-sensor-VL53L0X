@@ -3,8 +3,9 @@ Grove Ranging sensor VL53L0X
   --World’s smallest Time-of-Flight ranging and gesture detection sensor  
 ---------------------------------------------
 Introduction:  
-------------------------
-    The VL53L0X is a new generation Time-of-Flight(ToF) laser-ranging module housed in the smallest package on the market today, providing accurate distance measurement whatever the target reflectances unlike conventional technologies.
+------------------------  
+>The VL53L0X is a new generation Time-of-Flight(ToF) laser-ranging module housed in the smallest package on the market today,providing accurate distance measurement whatever the target reflectances unlike conventional technologies.  
+
 ***
 
 Usage: 
