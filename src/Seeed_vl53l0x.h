@@ -1,5 +1,5 @@
 /*
- * Seeed_vl53l0x.cpp
+ * Seeed_vl53l0x.h
  * Driver for DIGITAL I2C HUMIDITY AND TEMPERATURE SENSOR
  *  
  * Copyright (c) 2018 Seeed Technology Co., Ltd.
