@@ -393,7 +393,7 @@ VL53L0X_Error Seeed_vl53l0x::PerformContinuousRangingMeasurement(VL53L0X_Ranging
 
         Status = VL53L0X_GetRangingMeasurementData(pMyDevice, RangingMeasurementData);
         if(VL53L0X_ERROR_NONE!=Status) return Status;
-        if(RangingMeasurementData->RangeMilliMeter>=200)
+        if(RangingMeasurementData->RangeMilliMeter>=2000)
         {
             Serial.println("out of ranger");
         }
