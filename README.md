@@ -26,8 +26,8 @@ Notice:
 ***
 reference:
 ============
-**Software implementation flow:refer to doc/software-flow.pdf**
-**Datasheet:refer to doc/vl53l0x-datasheet.pdf**
+>**Software implementation flow:refer to doc/software-flow.pdf**  
+>**Datasheet:refer to doc/vl53l0x-datasheet.pdf**  
 
 
 ***
