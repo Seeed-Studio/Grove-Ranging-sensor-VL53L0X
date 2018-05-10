@@ -15,13 +15,20 @@ Usage:
 Notice:
 ----------
 >Not recommended for use under bright sun light. It will affects the accuracy of infrared.
->The range of measurement:10~2000mm(It is recommended to be within 1 meter in normal mode),further more,It has different performance when measure different color of object.Visit [ST-website](http://www.st.com/content/st_com/zh/search.html#q=VL53L0X-t=resources-page=1) and download the manual to get more detail.
+>The range of measurement:10~2000mm(It is recommended to be within 1 meter in normal mode),further more,It has different performance when measure different color of object.Refer to doc/vl53l0x-datasheet.pdf to get more detail.
 >This module supports:
 >+ single ranging mode:Perform measurement once when calling the measurement function.
 >+ continuous ranging mode:Perform measurement continuous with out interval time when calling the measurement function.
 >+ high speed ranging mode : Reduce measurement time.
 >+ high accuracy mode :Higher accuracy.but it will costs much more time.
 >+ long distance mode :Longer measurement distance.
+
+***
+reference:
+============
+**Software implementation flow:refer to doc/software-flow.pdf**
+**Datasheet:refer to doc/vl53l0x-datasheet.pdf**
+
 
 ***
 This software is written by downey  for seeed studio<br>
