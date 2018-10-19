@@ -3,7 +3,6 @@ Grove Ranging sensor VL53L0X
   --World’s smallest Time-of-Flight ranging and gesture detection sensor  
 ---------------------------------------------
 
-![VL53L0X](https://github.com/Seeed-Studio/Grove-Ranging-sensor-VL53L0X/blob/master/VL530XL_module.png)  
 
 
 

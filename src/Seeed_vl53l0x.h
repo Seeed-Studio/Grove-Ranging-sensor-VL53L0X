@@ -43,11 +43,47 @@
 #define IIC_DEFAULT_ADDR  0x29
 #define CONTINUOUS_MODE_MESURE_TIME  5
 
+
+
+#ifndef SEEED_DN_DEFINES
+#define SEEED_DN_DEFINES
+
+#ifdef ARDUINO_SAMD_VARIANT_COMPLIANCE
+  #define SERIAL_DB SerialUSB
+#else
+  #define SERIAL_DB Serial
+#endif
+
+
+typedef int            s32;
+typedef unsigned int   u32;
+typedef short          s16;
+typedef unsigned short u16;
+typedef char           s8;
+typedef unsigned char  u8;
+
+typedef enum	
+{
+    NO_ERROR=0,
+    ERROR_PARAM=-1,
+    ERROR_COMM =-2,
+    ERROR_OTHERS=-128,
+}err_t;
+
+
+#define CHECK_RESULT(a,b)   do{if(a=b)  {    \
+                            SERIAL_DB.print(__FILE__);    \
+                            SERIAL_DB.print(__LINE__);   \
+                            SERIAL_DB.print(" error code =");  \
+                            SERIAL_DB.println(a);                   \
+                            return a;   \
+                            }}while(0)
+
+#endif
+
 class Seeed_vl53l0x
 {
-	typedef unsigned int   u32;
-	typedef unsigned short u16;
-	typedef unsigned char  u8;
+	
 	public:
 		~Seeed_vl53l0x(){}
 		void print_pal_error(VL53L0X_Error Status);
