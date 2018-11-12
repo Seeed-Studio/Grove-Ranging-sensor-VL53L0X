@@ -43,10 +43,10 @@ void Seeed_vl53l0x::print_pal_error(VL53L0X_Error Status)
 {
 	char buf[VL53L0X_MAX_STRING_LENGTH];
     VL53L0X_GetPalErrorString(Status, buf);
-	Serial.print("API Status:");
-	Serial.print(Status);
-	Serial.print("API error string:");
-	Serial.println(buf);
+	// Serial.print("API Status:");
+	// Serial.print(Status);
+	// Serial.print("API error string:");
+	// Serial.println(buf);
 }
 
 /**@brief Print ranging status through param:pRangingMeasurementData
@@ -159,7 +159,7 @@ VL53L0X_Error Seeed_vl53l0x::check_version()
         pVersion->minor != VERSION_REQUIRED_MINOR ||
         pVersion->build != VERSION_REQUIRED_BUILD )
     {
-        Serial.println("VL53L0X API Version Error");
+        // Serial.println("VL53L0X API Version Error");
     }
     return Status;
 }
@@ -382,8 +382,8 @@ VL53L0X_Error Seeed_vl53l0x::PerformContinuousRangingMeasurement(VL53L0X_Ranging
     Status = VL53L0X_StartMeasurement(pMyDevice);
     if(VL53L0X_ERROR_NONE!=Status) return Status;
     
-    while(1)
-    {
+    // while(1)
+    // {
         while(1)
         {
             Status = VL53L0X_GetMeasurementDataReady(pMyDevice,&stat);
@@ -395,17 +395,17 @@ VL53L0X_Error Seeed_vl53l0x::PerformContinuousRangingMeasurement(VL53L0X_Ranging
         if(VL53L0X_ERROR_NONE!=Status) return Status;
         if(RangingMeasurementData->RangeMilliMeter>=2000)
         {
-            Serial.println("out of ranger");
+            // SerialUSB.println("out of ranger");
         }
         else 
         {
-            Serial.print("distance::");
-            Serial.println(RangingMeasurementData->RangeMilliMeter);
+            // SerialUSB.print("distance::");
+            // SerialUSB.println(RangingMeasurementData->RangeMilliMeter);
         }
 
         VL53L0X_ClearInterruptMask(pMyDevice, VL53L0X_REG_SYSTEM_INTERRUPT_GPIO_NEW_SAMPLE_READY);
         VL53L0X_PollingDelay(pMyDevice);
-    }
+    // }
 
     /***************************************************stop_part************************/
     // Status = VL53L0X_StopMeasurement(pMyDevice);
@@ -438,8 +438,8 @@ VL53L0X_Error Seeed_vl53l0x::PerformSingleRangingMeasurement(VL53L0X_RangingMeas
              		RangingMeasurementData);
         milli_value_stop=millis();
 
-        Serial.print("time of mesurement: ");
-        Serial.println(milli_value_stop-milli_value_start);
+        // Serial.print("time of mesurement: ");
+        // Serial.println(milli_value_stop-milli_value_start);
 
         return Status;
     }

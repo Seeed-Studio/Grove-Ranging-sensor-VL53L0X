@@ -1,14 +1,21 @@
 #include "Seeed_vl53l0x.h"
 Seeed_vl53l0x VL53L0X;
 
+
+#ifdef ARDUINO_SAMD_VARIANT_COMPLIANCE
+  #define SERIAL SerialUSB
+#else
+  #define SERIAL Serial
+#endif
+
 void setup()
 { 
 	VL53L0X_Error Status = VL53L0X_ERROR_NONE;
-	Serial.begin(115200);
+	SERIAL.begin(115200);
 	Status=VL53L0X.VL53L0X_common_init();
 	if(VL53L0X_ERROR_NONE!=Status)
 	{
-		Serial.println("start vl53l0x mesurement failed!");
+		SERIAL.println("start vl53l0x mesurement failed!");
 		VL53L0X.print_pal_error(Status);
 		while(1);
 	}
@@ -17,7 +24,7 @@ void setup()
 
 	if(VL53L0X_ERROR_NONE!=Status)
 	{
-		Serial.println("start vl53l0x mesurement failed!");
+		SERIAL.println("start vl53l0x mesurement failed!");
 		VL53L0X.print_pal_error(Status);
 		while(1);
 	}
@@ -35,19 +42,19 @@ void loop()
 	{
 		if(RangingMeasurementData.RangeMilliMeter>=2000)
 		{
-			Serial.println("out of range!!");
+			SERIAL.println("out of range!!");
 		}
 		else
 		{
-			Serial.print("Measured distance:");
-			Serial.print(RangingMeasurementData.RangeMilliMeter);
-			Serial.println(" mm");
+			SERIAL.print("Measured distance:");
+			SERIAL.print(RangingMeasurementData.RangeMilliMeter);
+			SERIAL.println(" mm");
 		}
 	}
 	else
 	{
-		Serial.print("mesurement failed !! Status code =");
-		Serial.println(Status);
+		SERIAL.print("mesurement failed !! Status code =");
+		SERIAL.println(Status);
 	}
 	
 	delay(300);
