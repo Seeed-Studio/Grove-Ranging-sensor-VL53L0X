@@ -1,35 +1,35 @@
 /*******************************************************************************
-Copyright © 2016, STMicroelectronics International N.V.
-All rights reserved.
+    Copyright © 2016, STMicroelectronics International N.V.
+    All rights reserved.
 
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-    * Redistributions of source code must retain the above copyright
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions are met:
+      Redistributions of source code must retain the above copyright
       notice, this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above copyright
+      Redistributions in binary form must reproduce the above copyright
       notice, this list of conditions and the following disclaimer in the
       documentation and/or other materials provided with the distribution.
-    * Neither the name of STMicroelectronics nor the
+      Neither the name of STMicroelectronics nor the
       names of its contributors may be used to endorse or promote products
       derived from this software without specific prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
-NON-INFRINGEMENT OF INTELLECTUAL PROPERTY RIGHTS ARE DISCLAIMED.
-IN NO EVENT SHALL STMICROELECTRONICS INTERNATIONAL N.V. BE LIABLE FOR ANY
-DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+    ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+    NON-INFRINGEMENT OF INTELLECTUAL PROPERTY RIGHTS ARE DISCLAIMED.
+    IN NO EVENT SHALL STMICROELECTRONICS INTERNATIONAL N.V. BE LIABLE FOR ANY
+    DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+    (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+    LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+    ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *******************************************************************************/
 
 /**
- * Device specific defines. To be adapted by implementer for the targeted
- * device.
- */
+    Device specific defines. To be adapted by implementer for the targeted
+    device.
+*/
 
 #ifndef _VL53L0X_DEVICE_H_
 #define _VL53L0X_DEVICE_H_
@@ -38,23 +38,23 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 /** @defgroup VL53L0X_DevSpecDefines_group VL53L0X cut1.1 Device Specific Defines
- *  @brief VL53L0X cut1.1 Device Specific Defines
- *  @{
- */
+    @brief VL53L0X cut1.1 Device Specific Defines
+    @{
+*/
 
 
 /** @defgroup VL53L0X_DeviceError_group Device Error
- *  @brief Device Error code
- *
- *  This enum is Device specific it should be updated in the implementation
- *  Use @a VL53L0X_GetStatusErrorString() to get the string.
- *  It is related to Status Register of the Device.
- *  @{
- */
+    @brief Device Error code
+
+    This enum is Device specific it should be updated in the implementation
+    Use @a VL53L0X_GetStatusErrorString() to get the string.
+    It is related to Status Register of the Device.
+    @{
+*/
 typedef uint8_t VL53L0X_DeviceError;
 
 #define VL53L0X_DEVICEERROR_NONE                        ((VL53L0X_DeviceError) 0)
-	/*!< 0  NoError  */
+/*!< 0  NoError  */
 #define VL53L0X_DEVICEERROR_VCSELCONTINUITYTESTFAILURE  ((VL53L0X_DeviceError) 1)
 #define VL53L0X_DEVICEERROR_VCSELWATCHDOGTESTFAILURE    ((VL53L0X_DeviceError) 2)
 #define VL53L0X_DEVICEERROR_NOVHVVALUEFOUND             ((VL53L0X_DeviceError) 3)
@@ -74,12 +74,12 @@ typedef uint8_t VL53L0X_DeviceError;
 
 
 /** @defgroup VL53L0X_CheckEnable_group Check Enable list
- *  @brief Check Enable code
- *
- *  Define used to specify the LimitCheckId.
- *  Use @a VL53L0X_GetLimitCheckInfo() to get the string.
- *  @{
- */
+    @brief Check Enable code
+
+    Define used to specify the LimitCheckId.
+    Use @a VL53L0X_GetLimitCheckInfo() to get the string.
+    @{
+*/
 
 #define VL53L0X_CHECKENABLE_SIGMA_FINAL_RANGE           0
 #define VL53L0X_CHECKENABLE_SIGNAL_RATE_FINAL_RANGE     1
@@ -94,22 +94,22 @@ typedef uint8_t VL53L0X_DeviceError;
 
 
 /** @defgroup VL53L0X_GpioFunctionality_group Gpio Functionality
- *  @brief Defines the different functionalities for the device GPIO(s)
- *  @{
- */
+    @brief Defines the different functionalities for the device GPIO(s)
+    @{
+*/
 typedef uint8_t VL53L0X_GpioFunctionality;
 
 #define VL53L0X_GPIOFUNCTIONALITY_OFF                     \
-	((VL53L0X_GpioFunctionality)  0) /*!< NO Interrupt  */
+    ((VL53L0X_GpioFunctionality)  0) /*!< NO Interrupt  */
 #define VL53L0X_GPIOFUNCTIONALITY_THRESHOLD_CROSSED_LOW   \
-	((VL53L0X_GpioFunctionality)  1) /*!< Level Low (value < thresh_low)  */
+    ((VL53L0X_GpioFunctionality)  1) /*!< Level Low (value < thresh_low)  */
 #define VL53L0X_GPIOFUNCTIONALITY_THRESHOLD_CROSSED_HIGH   \
-	((VL53L0X_GpioFunctionality)  2) /*!< Level High (value > thresh_high) */
+    ((VL53L0X_GpioFunctionality)  2) /*!< Level High (value > thresh_high) */
 #define VL53L0X_GPIOFUNCTIONALITY_THRESHOLD_CROSSED_OUT    \
-	((VL53L0X_GpioFunctionality)  3)
-	/*!< Out Of Window (value < thresh_low OR value > thresh_high)  */
+    ((VL53L0X_GpioFunctionality)  3)
+/*!< Out Of Window (value < thresh_low OR value > thresh_high)  */
 #define VL53L0X_GPIOFUNCTIONALITY_NEW_MEASURE_READY        \
-	((VL53L0X_GpioFunctionality)  4) /*!< New Sample Ready  */
+    ((VL53L0X_GpioFunctionality)  4) /*!< New Sample Ready  */
 
 /** @} end of VL53L0X_GpioFunctionality_group */
 
@@ -117,26 +117,26 @@ typedef uint8_t VL53L0X_GpioFunctionality;
 /* Device register map */
 
 /** @defgroup VL53L0X_DefineRegisters_group Define Registers
- *  @brief List of all the defined registers
- *  @{
- */
+    @brief List of all the defined registers
+    @{
+*/
 #define VL53L0X_REG_SYSRANGE_START                        0x000
-	/** mask existing bit in #VL53L0X_REG_SYSRANGE_START*/
-	#define VL53L0X_REG_SYSRANGE_MODE_MASK          0x0F
-	/** bit 0 in #VL53L0X_REG_SYSRANGE_START write 1 toggle state in
-	 * continuous mode and arm next shot in single shot mode */
-	#define VL53L0X_REG_SYSRANGE_MODE_START_STOP    0x01
-	/** bit 1 write 0 in #VL53L0X_REG_SYSRANGE_START set single shot mode */
-	#define VL53L0X_REG_SYSRANGE_MODE_SINGLESHOT    0x00
-	/** bit 1 write 1 in #VL53L0X_REG_SYSRANGE_START set back-to-back
-	 *  operation mode */
-	#define VL53L0X_REG_SYSRANGE_MODE_BACKTOBACK    0x02
-	/** bit 2 write 1 in #VL53L0X_REG_SYSRANGE_START set timed operation
-	 *  mode */
-	#define VL53L0X_REG_SYSRANGE_MODE_TIMED         0x04
-	/** bit 3 write 1 in #VL53L0X_REG_SYSRANGE_START set histogram operation
-	 *  mode */
-	#define VL53L0X_REG_SYSRANGE_MODE_HISTOGRAM     0x08
+/** mask existing bit in #VL53L0X_REG_SYSRANGE_START*/
+#define VL53L0X_REG_SYSRANGE_MODE_MASK          0x0F
+/** bit 0 in #VL53L0X_REG_SYSRANGE_START write 1 toggle state in
+    continuous mode and arm next shot in single shot mode */
+#define VL53L0X_REG_SYSRANGE_MODE_START_STOP    0x01
+/** bit 1 write 0 in #VL53L0X_REG_SYSRANGE_START set single shot mode */
+#define VL53L0X_REG_SYSRANGE_MODE_SINGLESHOT    0x00
+/** bit 1 write 1 in #VL53L0X_REG_SYSRANGE_START set back-to-back
+    operation mode */
+#define VL53L0X_REG_SYSRANGE_MODE_BACKTOBACK    0x02
+/** bit 2 write 1 in #VL53L0X_REG_SYSRANGE_START set timed operation
+    mode */
+#define VL53L0X_REG_SYSRANGE_MODE_TIMED         0x04
+/** bit 3 write 1 in #VL53L0X_REG_SYSRANGE_START set histogram operation
+    mode */
+#define VL53L0X_REG_SYSRANGE_MODE_HISTOGRAM     0x08
 
 
 #define VL53L0X_REG_SYSTEM_THRESH_HIGH               0x000C
@@ -149,11 +149,11 @@ typedef uint8_t VL53L0X_GpioFunctionality;
 
 
 #define VL53L0X_REG_SYSTEM_INTERRUPT_CONFIG_GPIO               0x000A
-	#define VL53L0X_REG_SYSTEM_INTERRUPT_GPIO_DISABLED	0x00
-	#define VL53L0X_REG_SYSTEM_INTERRUPT_GPIO_LEVEL_LOW	0x01
-	#define VL53L0X_REG_SYSTEM_INTERRUPT_GPIO_LEVEL_HIGH	0x02
-	#define VL53L0X_REG_SYSTEM_INTERRUPT_GPIO_OUT_OF_WINDOW	0x03
-	#define VL53L0X_REG_SYSTEM_INTERRUPT_GPIO_NEW_SAMPLE_READY	0x04
+#define VL53L0X_REG_SYSTEM_INTERRUPT_GPIO_DISABLED	0x00
+#define VL53L0X_REG_SYSTEM_INTERRUPT_GPIO_LEVEL_LOW	0x01
+#define VL53L0X_REG_SYSTEM_INTERRUPT_GPIO_LEVEL_HIGH	0x02
+#define VL53L0X_REG_SYSTEM_INTERRUPT_GPIO_OUT_OF_WINDOW	0x03
+#define VL53L0X_REG_SYSTEM_INTERRUPT_GPIO_NEW_SAMPLE_READY	0x04
 
 #define VL53L0X_REG_GPIO_HV_MUX_ACTIVE_HIGH          0x0084
 
@@ -235,8 +235,8 @@ typedef uint8_t VL53L0X_GpioFunctionality;
 #define VL53L0X_REG_POWER_MANAGEMENT_GO1_POWER_FORCE    0x80
 
 /*
- * Speed of light in um per 1E-10 Seconds
- */
+    Speed of light in um per 1E-10 Seconds
+*/
 
 #define VL53L0X_SPEED_OF_LIGHT_IN_AIR 2997
 
