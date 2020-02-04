@@ -1,4 +1,4 @@
-Grove Ranging sensor VL53L0X
+Grove Ranging sensor VL53L0X  [![Build Status](https://travis-ci.com/Seeed-Studio/Grove-Ranging-sensor-VL53L0X.svg?branch=master)](https://travis-ci.com/Seeed-Studio/Grove-Ranging-sensor-VL53L0X)
 =======================================
   --World’s smallest Time-of-Flight ranging and gesture detection sensor  
 ---------------------------------------------
