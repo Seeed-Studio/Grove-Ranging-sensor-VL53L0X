@@ -7,7 +7,8 @@
 
 
 int VL53L0X_i2c_init(void) {
-    Wire.begin();
+    // Wire.begin();
+    softwarei2c.begin(D1, D0);
     return VL53L0X_ERROR_NONE;
 }
 
