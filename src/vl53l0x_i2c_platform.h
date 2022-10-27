@@ -2,6 +2,7 @@
 // #include "Wire.h"
 #include "SoftwareI2C.h"
 
+extern SoftwareI2C softwarei2c;
 
 int VL53L0X_i2c_init(void);
 int VL53L0X_write_multi(uint8_t deviceAddress, uint8_t index, uint8_t* pdata, uint32_t count);
