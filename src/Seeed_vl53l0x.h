@@ -33,7 +33,8 @@
 #define _SEEED_VL53L0X_H
 
 #include <Arduino.h>
-#include <Wire.h>
+// #include <Wire.h>
+#include "SoftwareI2C.h"
 
 #include "vl53l0x_api.h"
 #include "vl53l0x_platform.h"

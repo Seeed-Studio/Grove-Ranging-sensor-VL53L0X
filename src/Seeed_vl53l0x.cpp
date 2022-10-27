@@ -71,7 +71,7 @@ void print_range_status(VL53L0X_RangingMeasurementData_t* pRangingMeasurementDat
     @param IIC address.default address is 0x29.
  * */
 void Seeed_vl53l0x::VL53L0X_IIC_init(u8 IIC_ADDRESS) {
-    Wire.begin();
+    // Wire.begin();
     pMyDevice->I2cDevAddr      = IIC_ADDRESS;
     pMyDevice->comms_type      =  1;
     pMyDevice->comms_speed_khz =  400;
