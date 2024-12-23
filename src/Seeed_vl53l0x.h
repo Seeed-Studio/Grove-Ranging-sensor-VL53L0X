@@ -62,12 +62,14 @@ typedef unsigned short u16;
 typedef char           s8;
 typedef unsigned char  u8;
 
+#if 0
 typedef enum {
     NO_ERROR = 0,
     ERROR_PARAM = -1,
     ERROR_COMM = -2,
     ERROR_OTHERS = -128,
 } err_t;
+#endif
 
 
 #define CHECK_RESULT(a,b)   do{if(a=b)  {    \

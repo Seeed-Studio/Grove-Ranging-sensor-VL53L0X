@@ -110,6 +110,7 @@ VL53L0X_Error Seeed_vl53l0x::VL53L0X_calibration_oprt() {
  * */
 VL53L0X_Error Seeed_vl53l0x::VL53L0X_calibration_set() {
     VL53L0X_Error Status = VL53L0X_ERROR_NONE;
+    return Status;
 }
 
 /** @brief Set limitation factor.
@@ -174,8 +175,6 @@ VL53L0X_Error Seeed_vl53l0x::check_version() {
  * */
 VL53L0X_Error Seeed_vl53l0x::VL53L0X_common_init() {
     VL53L0X_Error Status = VL53L0X_ERROR_NONE;
-
-    FixPoint1616_t LimitCheckCurrent;
 
     VL53L0X_IIC_init();
 
@@ -440,7 +439,7 @@ VL53L0X_Error Seeed_vl53l0x::PerformContinuousRangingMeasurement(VL53L0X_Ranging
         RangingMeasurementData) {
     VL53L0X_Error Status = VL53L0X_ERROR_NONE;
     u8 stat = 0;
-    u32 stop_stat = 0;
+    // u32 stop_stat = 0;
     Status = VL53L0X_StartMeasurement(pMyDevice);
     if (VL53L0X_ERROR_NONE != Status) {
         return Status;
@@ -491,21 +490,20 @@ VL53L0X_Error Seeed_vl53l0x::PerformContinuousRangingMeasurement(VL53L0X_Ranging
     @return Error code, error if not equal to zero
  * */
 VL53L0X_Error Seeed_vl53l0x::PerformSingleRangingMeasurement(VL53L0X_RangingMeasurementData_t* RangingMeasurementData) {
-    FixPoint1616_t LimitCheckCurrent;
     VL53L0X_Error Status = VL53L0X_ERROR_NONE;
     u32 milli_value_start = 0, milli_value_stop = 0;
     //VL53L0X_RangingMeasurementData_t RangingMeasurementData;
-    int i = 0;
     if (Status == VL53L0X_ERROR_NONE) {
         milli_value_start = millis();
         Status = VL53L0X_PerformSingleRangingMeasurement(pMyDevice,
                  RangingMeasurementData);
         milli_value_stop = millis();
 
-        // Serial.print("time of mesurement: ");
-        // Serial.println(milli_value_stop-milli_value_start);
+        Serial.print("time of mesurement: ");
+        Serial.println(milli_value_stop-milli_value_start);
 
         return Status;
     }
-}
 
+    return Status;
+}

@@ -1,13 +1,8 @@
 #include "Seeed_vl53l0x.h"
 Seeed_vl53l0x VL53L0X;
 
-#ifdef ARDUINO_SAMD_VARIANT_COMPLIANCE
-    #define SERIAL SerialUSB
-#else
-    #define SERIAL Serial
-#endif
-
-
+#undef SERIAL
+#define SERIAL Serial
 
 void setup() {
     VL53L0X_Error Status = VL53L0X_ERROR_NONE;
@@ -38,5 +33,3 @@ void loop() {
     }
     delay(100);
 }
-
-

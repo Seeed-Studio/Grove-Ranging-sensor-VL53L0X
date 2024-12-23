@@ -270,7 +270,7 @@ VL53L0X_Error  VL53L0X_RdDWord(VL53L0X_DEV Dev, uint8_t index, uint32_t* data) {
 #define VL53L0X_POLLINGDELAY_LOOPNB  250
 VL53L0X_Error VL53L0X_PollingDelay(VL53L0X_DEV Dev) {
     VL53L0X_Error status = VL53L0X_ERROR_NONE;
-    volatile uint32_t i;
+    uint32_t i;
     LOG_FUNCTION_START("");
 
     for (i = 0; i < VL53L0X_POLLINGDELAY_LOOPNB; i++) {
